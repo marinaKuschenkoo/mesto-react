@@ -1,15 +1,15 @@
 import PopupWithForm from "./PopupWithForm.js";
-import { useState, useContext, useEffect } from 'react';
-function EditProfilePopup(props){
-    return (
-        <PopupWithForm
-          name={"edit-profile"}
-          title={"Редактировать профиль"}
-          textButton={"Сохранить"}
-          isOpen={props.isOpen}
-          onClose={props.onClose}
-        >
-        <fieldset className="form">
+import { useState, useContext, useEffect } from "react";
+function EditProfilePopup(props) {
+  return (
+    <PopupWithForm
+      name={"edit-profile"}
+      title={"Редактировать профиль"}
+      textButton={"Сохранить"}
+      isOpen={props.isOpen}
+      onClose={props.onClose}
+    >
+      <fieldset className="form">
         <label className="form__input-label">
           <input
             className={"popup__input popup__input_type_name"}
@@ -20,7 +20,10 @@ function EditProfilePopup(props){
             maxLength={"40"}
             required
           />
-          <span id={"name-error"} className={"popup__input-error popup__input-error_active"}></span>
+          <span
+            id={"name-error"}
+            className={"popup__input-error popup__input-error_active"}
+          ></span>
           <input
             className={"popup__input popup__input_type_work"}
             type={"text"}
@@ -30,11 +33,14 @@ function EditProfilePopup(props){
             maxLength={"200"}
             required
           />
-          <span id={"about-error"} className={"popup__input-error popup__input-error_active"}></span>
-          </label>
-          </fieldset>
-        </PopupWithForm>
-      );
+          <span
+            id={"about-error"}
+            className={"popup__input-error popup__input-error_active"}
+          ></span>
+        </label>
+      </fieldset>
+    </PopupWithForm>
+  );
 }
 
-export default EditProfilePopup
+export default EditProfilePopup;
