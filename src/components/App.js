@@ -12,7 +12,7 @@ import ImagePopup from "./ImagePopup.js";
 import Card from "./Card.js";
 import avatar from "../images/Avatar.png";
 import api from "../utils/Api.js";
-import { currentUserContext } from "../contexts/CurrentUserContext.js";
+import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 
 function App() {
   const [isDeletePopupOpen, setIsDeletePopupOpen] = useState(false);
@@ -127,7 +127,7 @@ function App() {
   };
 
   return (
-    <currentUserContext.Provider value={currentUser}>
+    <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
         <div className="page">
           <Header />
@@ -162,7 +162,7 @@ function App() {
           <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         </div>
       </div>
-    </currentUserContext.Provider>
+    </CurrentUserContext.Provider>
   );
 }
 

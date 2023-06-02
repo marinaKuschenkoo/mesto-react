@@ -42,6 +42,7 @@ function AddPlacePopup(props) {
             minLength="2"
             maxLength="30"
             onChange={handlePlaceNameChange}
+            value={placeName || ''}
             required
           />
           <span
@@ -57,6 +58,7 @@ function AddPlacePopup(props) {
             name="link"
             onChange={handlePlaceLinkChange}
             required
+            value={placeLink || ''}
           />
           <span
             className="popup__input-error popup__input-error_active"
