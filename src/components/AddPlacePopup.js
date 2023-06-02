@@ -2,27 +2,27 @@ import PopupWithForm from "./PopupWithForm.js";
 import { useState, useContext, useEffect } from "react";
 import React from "react";
 function AddPlacePopup(props) {
-  const [placeName, setPlaceName]=useState('');
-  const [placeLink,setPlaceLink]=useState('')
+  const [placeName, setPlaceName] = useState("");
+  const [placeLink, setPlaceLink] = useState("");
 
-  useEffect(()=>{
-    setPlaceName('')
-    setPlaceLink('')
-  },[props.isOpen])
+  useEffect(() => {
+    setPlaceName("");
+    setPlaceLink("");
+  }, [props.isOpen]);
 
-  const handlePlaceNameChange=(e)=>{
-    setPlaceName(e.target.value)
-  }
-  const handlePlaceLinkChange=(e)=>{
-    setPlaceLink(e.target.value)
-  }
-  const handleSubmit=(e)=>{
+  const handlePlaceNameChange = (e) => {
+    setPlaceName(e.target.value);
+  };
+  const handlePlaceLinkChange = (e) => {
+    setPlaceLink(e.target.value);
+  };
+  const handleSubmit = (e) => {
     e.preventDefault();
     props.onAddPlace({
-      name:placeName,
-      link:placeLink
-    })
-  }
+      name: placeName,
+      link: placeLink,
+    });
+  };
   return (
     <PopupWithForm
       title="Новое место"
@@ -31,7 +31,6 @@ function AddPlacePopup(props) {
       onClose={props.onClose}
       onSubmit={handleSubmit}
       textButton={props.onLoading ? `Сохранение...` : `Создать`}
-      
     >
       <fieldset className="form">
         <label className="form__input-label">

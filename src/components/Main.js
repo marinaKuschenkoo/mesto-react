@@ -4,9 +4,8 @@ import { useEffect, useState, useContext } from "react";
 import Card from "./Card.js";
 import { currentUserContext } from "../contexts/CurrentUserContext.js";
 function Main(props) {
+  const currentUser = useContext(currentUserContext);
 
-  const currentUser=useContext(currentUserContext);
-  
   return (
     <main className="main">
       <section className="profile">
