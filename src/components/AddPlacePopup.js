@@ -1,13 +1,37 @@
 import PopupWithForm from "./PopupWithForm.js";
 import { useState, useContext, useEffect } from "react";
+import React from "react";
 function AddPlacePopup(props) {
+  const [placeName, setPlaceName]=useState('');
+  const [placeLink,setPlaceLink]=useState('')
+
+  useEffect(()=>{
+    setPlaceName('')
+    setPlaceLink('')
+  },[props.isOpen])
+
+  const handlePlaceNameChange=(e)=>{
+    setPlaceName(e.target.value)
+  }
+  const handlePlaceLinkChange=(e)=>{
+    setPlaceLink(e.target.value)
+  }
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    props.onAddPlace({
+      name:placeName,
+      link:placeLink
+    })
+  }
   return (
     <PopupWithForm
       title="Новое место"
       name="add-items"
       isOpen={props.isOpen}
       onClose={props.onClose}
-      textButton="Сохранить"
+      onSubmit={handleSubmit}
+      textButton={props.onLoading ? `Сохранение...` : `Создать`}
+      
     >
       <fieldset className="form">
         <label className="form__input-label">
@@ -18,6 +42,7 @@ function AddPlacePopup(props) {
             name="name"
             minLength="2"
             maxLength="30"
+            onChange={handlePlaceNameChange}
             required
           />
           <span
@@ -31,6 +56,7 @@ function AddPlacePopup(props) {
             className="popup__input popup__input_type_placeImage"
             placeholder="Ссылка на картинку"
             name="link"
+            onChange={handlePlaceLinkChange}
             required
           />
           <span
